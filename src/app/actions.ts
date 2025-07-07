@@ -5,6 +5,7 @@
  * Instead we're using the RSS feed which is an older approach but more reliable.
  */
 
+// TODO: Move these types to a separate file
 type MediaType = 'albums' | 'audiobooks' | 'podcasts'
 
 type MediaItem = {
@@ -13,7 +14,7 @@ type MediaItem = {
   'im:image': { label?: string }[]
   'im:releaseDate': { attributes: { label: string } }
 }
-type Media = {
+export type Media = {
   title: string
   artist: string
   image: string
