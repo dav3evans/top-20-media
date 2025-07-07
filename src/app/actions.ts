@@ -10,7 +10,7 @@ type MediaType = 'albums' | 'audiobooks' | 'podcasts'
 type MediaItem = {
   'im:name': { label: string }
   'im:artist': { label: string }
-  'im:image': { label: string }[]
+  'im:image'?: { label: string }[]
   'im:releaseDate': { attributes: { label: string } }
 }
 type Media = {
@@ -30,11 +30,12 @@ export async function fetchMedia(MediaType: MediaType): Promise<Media[]> {
     return data.feed.entry.map((item: MediaItem) => ({
       title: item['im:name'].label,
       artist: item['im:artist'].label,
-      image: item['im:image'][item['im:image'].length - 1].label,
-      releaseDate: item['im:releaseDate'].attributes.label,
+      image: item['im:image']?.[item['im:image'].length - 1].label || '',
+      releaseDate: item['im:releaseDate'].attributes.label || '',
     }))
   } catch (error) {
     console.error('Error fetching data:', error)
+    throw new Error('Failed to fetch media data from iTunes feed')
     return []
   }
 }
