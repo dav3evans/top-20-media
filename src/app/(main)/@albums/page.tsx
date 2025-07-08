@@ -7,11 +7,15 @@ export default async function AlbumsList({
 }: {
   searchParams: { [key: string]: string | undefined }
 }) {
-  const visible = searchParams.podcasts !== 'false'
+  // Without this we'll get an error about waiting for these before using them.
+  // This is because the searchParams are not available immediately in the server component.
+  const awaitedParams = await searchParams
+
+  const visible = awaitedParams.podcasts !== 'false'
   if (!visible) return null
 
   const allAlbums = await fetchMedia('albums')
-  const filter = searchParams.filter?.toLowerCase() || ''
+  const filter = awaitedParams.filter?.toLowerCase() || ''
   const filtered = allAlbums.filter((album) => album.title.toLowerCase().includes(filter))
 
   if (filtered.length === 0) {
