@@ -13,7 +13,7 @@ export default function MainLayout({
   return (
     <main className="m-auto max-w-[1280px] flex flex-col gap-8">
       {children}
-      <section className="flex gap-[32px]">
+      <section className="flex gap-8">
         {audiobooks}
         {albums}
         {podcasts}
