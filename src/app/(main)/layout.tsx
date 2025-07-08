@@ -11,8 +11,7 @@ export default function MainLayout({
   podcasts: ReactNode
 }) {
   return (
-    <main className="m-auto max-w-[1280px]">
-      <p>(main) layout</p>
+    <main className="m-auto max-w-[1280px] flex flex-col gap-8">
       {children}
       <section className="flex gap-[32px]">
         {audiobooks}
