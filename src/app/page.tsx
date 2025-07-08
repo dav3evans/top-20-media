@@ -1,4 +1,4 @@
-import { fetchMedia } from './actions'
+import { fetchMedia } from '@actions/fetchMediaActions'
 import MediaList from '@/components/MediaList'
 
 const homePage = async () => {

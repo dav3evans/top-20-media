@@ -1,4 +1,4 @@
-import type { Media } from '../app/actions'
+import type { Media } from '@actions/fetchMediaActions'
 import MediaItem from './MediaItem'
 
 type MediaListProps = {
