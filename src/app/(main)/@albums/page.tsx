@@ -1,11 +1,23 @@
 import { fetchMedia } from '@/actions/fetchMediaActions'
-import MediaList from '@components/MediaList'
+import MediaList from '@/components/MediaList'
+import NoResults from '@/components/NoResults'
 
-import { wait } from '@lib/wait'
+export default async function AlbumsList({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | undefined }
+}) {
+  const visible = searchParams.podcasts !== 'false'
+  if (!visible) return null
 
-export default async function Albums() {
-  await wait(2000)
-  const albums = await fetchMedia('audiobooks')
+  const allAlbums = await fetchMedia('albums')
+  const filter = searchParams.filter?.toLowerCase() || ''
+  const filtered = allAlbums.filter((album) => album.title.toLowerCase().includes(filter))
 
-  return <MediaList items={albums} title="Audiobooks" />
+  if (filtered.length === 0) {
+    return <NoResults />
+    // This replaces the list - we need to move those styles into a container and then reference that here.
+  }
+
+  return <MediaList items={filtered} title="Albums" />
 }
