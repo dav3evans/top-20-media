@@ -49,7 +49,7 @@ export default function MediaPage() {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Search the charts..."
-          className="p-2 h-full text-2xl w-full md:flex-1"
+          className="p-2 h-full text-2xl w-full md:w-auto md:flex-1"
           id="search-filter"
         />
         <Label htmlFor="search-filter" className="sr-only">
@@ -57,14 +57,14 @@ export default function MediaPage() {
         </Label>
         <Button
           type="submit"
-          className="bg-teal-800 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer flex-1"
+          className="bg-teal-800 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer flex-1 md:flex-none"
           disabled={isPending}
         >
           Search
         </Button>
         <Button
           type="button"
-          className="bg-gray-500 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer flex-1"
+          className="bg-gray-500 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer flex-1 md:flex-none"
           onClick={() => {
             setFilter('')
             router.replace('?', { scroll: false })
