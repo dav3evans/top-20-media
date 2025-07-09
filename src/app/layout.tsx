@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <h1 className="m-auto text-5xl md:text-8xl whitespace-nowrap mb-4 w-fit bg-clip-text text-transparent bg-gradient-to-tr from-teal-200 to-teal-700">
               The Charts.
             </h1>
-            <p className="text-2xl">Showing you the best in music, books, and podcasts.</p>
+            <p className="text-2xl">Showing you the best in music, audiobooks, and podcasts.</p>
           </header>
           {children}
           <footer>

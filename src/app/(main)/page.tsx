@@ -5,6 +5,7 @@ import { useState, useTransition, useEffect } from 'react'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 
 export default function MediaPage() {
   const router = useRouter()
@@ -48,22 +49,22 @@ export default function MediaPage() {
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Search the charts..."
-          className="border p-2 flex-1 h-full text-2xl"
+          className="p-2 flex-1 h-full text-2xl"
           id="search-filter"
         />
         <Label htmlFor="search-filter" className="sr-only">
           Search here
         </Label>
-        <button
+        <Button
           type="submit"
-          className="bg-teal-800 text-2xl px-4 py-2 rounded-sm cursor-pointer"
+          className="bg-teal-800 text-2xl text-white h-full px-4 py-2 rounded-sm cursor-pointer"
           disabled={isPending}
         >
           Search
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className="bg-gray-500 text-2xl px-4 py-2 rounded-sm cursor-pointer"
+          className="bg-gray-500 text-2xl text-white h-full px-4 py-2 rounded-sm cursor-pointer"
           onClick={() => {
             setFilter('')
             router.replace('?', { scroll: false })
@@ -71,11 +72,11 @@ export default function MediaPage() {
           aria-label="Clear search"
         >
           Clear
-        </button>
+        </Button>
       </div>
 
       <div className="flex gap-8 justify-center">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <Switch
             id="albums"
             className="cursor-pointer"
@@ -88,7 +89,7 @@ export default function MediaPage() {
           </Label>
         </div>
         {/* Technically a false positive accessibility warning here. Being reported on an input that is aria-hidden */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <Switch
             id="audiobooks"
             className="cursor-pointer"
@@ -101,7 +102,7 @@ export default function MediaPage() {
           </Label>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <Switch
             id="podcasts"
             className="cursor-pointer"
