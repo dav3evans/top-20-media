@@ -53,11 +53,16 @@ export default function MediaPage() {
         <Label htmlFor="search-filter" className="sr-only">
           Search here
         </Label>
-        <button type="submit" className="bg-black text-white px-4 py-2" disabled={isPending}>
+        <button
+          type="submit"
+          className="bg-black text-white px-4 py-2 cursor-pointer"
+          disabled={isPending}
+        >
           Search
         </button>
         <button
           type="button"
+          className="cursor-pointer"
           onClick={() => {
             setFilter('')
             router.replace('?', { scroll: false }) // clears search param
@@ -71,6 +76,7 @@ export default function MediaPage() {
         <div className="flex items-center gap-2">
           <Switch
             id="albums"
+            className="cursor-pointer"
             aria-labelledby="albumsLabel"
             checked={albumsVisible}
             onCheckedChange={() => handleToggle('albums', albumsVisible)}
@@ -83,6 +89,7 @@ export default function MediaPage() {
         <div className="flex items-center gap-2">
           <Switch
             id="audiobooks"
+            className="cursor-pointer"
             aria-labelledby="audiobooksLabel"
             checked={audiobooksVisible}
             onCheckedChange={() => handleToggle('audiobooks', audiobooksVisible)}
@@ -95,6 +102,7 @@ export default function MediaPage() {
         <div className="flex items-center gap-2">
           <Switch
             id="podcasts"
+            className="cursor-pointer"
             aria-label="show postcasts"
             aria-labelledby="podcastsLabel"
             checked={podcastsVisible}

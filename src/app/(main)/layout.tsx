@@ -15,8 +15,8 @@ export default function MainLayout({
       {/* Suspense needed here because of useSearchParams() in the client page component */}
       <Suspense>{children}</Suspense>
       <section className="flex gap-8">
-        {audiobooks}
         {albums}
+        {audiobooks}
         {podcasts}
       </section>
     </main>

@@ -6,7 +6,7 @@ type MediaListProps = {
   title: string
 }
 
-export default function MediaList({ items, title }: MediaListProps) {
+const MediaList = ({ items, title }: MediaListProps) => {
   return (
     <section className="flex flex-col flex-1 gap-8 p-4 border-2 rounded-lg bg-gradient-to-b from-white/5 to-white/10">
       <h2 className="text-xl font-semibold">{title}</h2>
@@ -22,3 +22,5 @@ export default function MediaList({ items, title }: MediaListProps) {
     </section>
   )
 }
+
+export default MediaList

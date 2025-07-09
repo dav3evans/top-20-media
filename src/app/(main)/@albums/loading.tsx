@@ -1,3 +1,5 @@
-export default function Loading() {
-  return <div className="flex-1">Loading albums...</div>
+import Loading from '@/components/Loading'
+
+export default function AlbumsLoading() {
+  return <Loading loadingText="Loading albums..." />
 }
