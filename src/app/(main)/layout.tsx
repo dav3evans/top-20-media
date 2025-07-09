@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 export default function MainLayout({
   children,
   audiobooks,
@@ -12,7 +12,8 @@ export default function MainLayout({
 }) {
   return (
     <main className="m-auto max-w-[1280px] flex flex-col gap-8">
-      {children}
+      {/* Suspense needed here because of useSearchParams() in the client page component */}
+      <Suspense>{children}</Suspense>
       <section className="flex gap-8">
         {audiobooks}
         {albums}
