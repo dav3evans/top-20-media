@@ -123,7 +123,7 @@
 
 @layer utilities {
   .animated-bg {
-    @apply text-white font-sans overflow-hidden relative;
+    @apply text-white font-sans overflow-hidden fixed top-0 left-0 z-[-10];
 
     background:
       radial-gradient(circle at 20% 30%, rgba(255, 105, 180, 0.15), transparent 40%),

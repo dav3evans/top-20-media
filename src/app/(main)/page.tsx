@@ -41,7 +41,7 @@ export default function MediaPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-12">
       <div className="flex gap-2 h-[50px]">
         <Input
           type="text"
@@ -83,7 +83,7 @@ export default function MediaPage() {
             checked={albumsVisible}
             onCheckedChange={() => handleFilterToggle('albums', albumsVisible)}
           />
-          <Label id="albumsLabel" htmlFor="albums">
+          <Label id="albumsLabel" htmlFor="albums" className="text-lg">
             Show Albums
           </Label>
         </div>
@@ -96,7 +96,7 @@ export default function MediaPage() {
             checked={audiobooksVisible}
             onCheckedChange={() => handleFilterToggle('audiobooks', audiobooksVisible)}
           />
-          <Label id="audiobooksLabel" htmlFor="audiobooks">
+          <Label id="audiobooksLabel" htmlFor="audiobooks" className="text-lg">
             Show Audiobooks
           </Label>
         </div>
@@ -110,7 +110,7 @@ export default function MediaPage() {
             checked={podcastsVisible}
             onCheckedChange={() => handleFilterToggle('podcasts', podcastsVisible)}
           />
-          <Label id="podcastsLabel" htmlFor="podcasts">
+          <Label id="podcastsLabel" htmlFor="podcasts" className="text-lg">
             Show Podcasts
           </Label>
         </div>
