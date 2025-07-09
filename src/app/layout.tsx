@@ -10,11 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      {/* <body className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] dark"> */}
-      <body className="m-auto max-w-[1280px] dark">
-        <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
-          <header className="">
-            <h1 className="m-auto text-5xl md:text-7xl whitespace-nowrap mb-4 w-fit bg-clip-text text-transparent bg-gradient-to-tr from-teal-200 to-teal-700">
+      <body className="dark animated-bg">
+        <div className="grid grid-rows-[auto_1fr_auto] min-h-screen m-auto mt-8 max-w-[1280px] px-4">
+          <header className="text-center mb-8">
+            <h1 className="m-auto text-5xl md:text-8xl whitespace-nowrap mb-4 w-fit bg-clip-text text-transparent bg-gradient-to-tr from-teal-200 to-teal-700">
               The Chart.
             </h1>
             <p className="text-2xl">Showing you the best in music, books, and podcasts</p>

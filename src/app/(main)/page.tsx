@@ -42,13 +42,13 @@ export default function MediaPage() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-6">
-      <div className="flex gap-2">
+      <div className="flex gap-2 h-[50px]">
         <Input
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Search the charts..."
-          className="border p-2 flex-1"
+          className="border p-2 flex-1 h-full text-2xl"
           id="search-filter"
         />
         <Label htmlFor="search-filter" className="sr-only">
@@ -56,20 +56,21 @@ export default function MediaPage() {
         </Label>
         <button
           type="submit"
-          className="bg-black text-white px-4 py-2 cursor-pointer"
+          className="bg-teal-800 text-2xl px-4 py-2 rounded-sm cursor-pointer"
           disabled={isPending}
         >
           Search
         </button>
         <button
           type="button"
-          className="cursor-pointer"
+          className="bg-gray-500 text-2xl px-4 py-2 rounded-sm cursor-pointer"
           onClick={() => {
             setFilter('')
             router.replace('?', { scroll: false })
           }}
+          aria-label="Clear search"
         >
-          Reset Search
+          Clear
         </button>
       </div>
 

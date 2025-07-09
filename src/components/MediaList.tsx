@@ -10,7 +10,7 @@ type MediaListProps = {
 const MediaList = ({ items, title }: MediaListProps) => {
   return (
     <Card>
-      <h2 className="text-xl font-semibold">{title}</h2>
+      <h2 className="text-3xl font-semibold">{title}</h2>
       {items.map((item) => (
         <MediaItem
           key={item.title}
