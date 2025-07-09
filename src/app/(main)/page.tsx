@@ -42,14 +42,14 @@ export default function MediaPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-12">
-      <div className="flex gap-2 h-[50px]">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-8 md:mb-12">
+      <div className="flex flex-wrap gap-2 md:h-[50px]">
         <Input
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Search the charts..."
-          className="p-2 flex-1 h-full text-2xl"
+          className="p-2 h-full text-2xl w-full md:flex-1"
           id="search-filter"
         />
         <Label htmlFor="search-filter" className="sr-only">
@@ -57,14 +57,14 @@ export default function MediaPage() {
         </Label>
         <Button
           type="submit"
-          className="bg-teal-800 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer"
+          className="bg-teal-800 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer flex-1"
           disabled={isPending}
         >
           Search
         </Button>
         <Button
           type="button"
-          className="bg-gray-500 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer"
+          className="bg-gray-500 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer flex-1"
           onClick={() => {
             setFilter('')
             router.replace('?', { scroll: false })
@@ -75,8 +75,18 @@ export default function MediaPage() {
         </Button>
       </div>
 
-      <div className="flex gap-8 justify-center">
-        <div className="flex items-center gap-3">
+      <div
+        role="group"
+        aria-labelledby="media-type-label"
+        className="flex flex-row gap-4 md:gap-8 justify-center items-center"
+      >
+        <h3 id="media-type-label" className="-mr-2 text-xl font-semibold sr-only">
+          Filter by:
+        </h3>
+        <div className="flex flex-col md:flex-row items-center gap-2">
+          <Label id="albumsLabel" htmlFor="albums" className="text-lg">
+            Albums
+          </Label>
           <Switch
             id="albums"
             className="cursor-pointer"
@@ -84,12 +94,12 @@ export default function MediaPage() {
             checked={albumsVisible}
             onCheckedChange={() => handleFilterToggle('albums', albumsVisible)}
           />
-          <Label id="albumsLabel" htmlFor="albums" className="text-lg">
-            Show Albums
-          </Label>
         </div>
         {/* Technically a false positive accessibility warning here. Being reported on an input that is aria-hidden */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col md:flex-row items-center gap-2">
+          <Label id="audiobooksLabel" htmlFor="audiobooks" className="text-lg">
+            Audiobooks
+          </Label>
           <Switch
             id="audiobooks"
             className="cursor-pointer"
@@ -97,12 +107,12 @@ export default function MediaPage() {
             checked={audiobooksVisible}
             onCheckedChange={() => handleFilterToggle('audiobooks', audiobooksVisible)}
           />
-          <Label id="audiobooksLabel" htmlFor="audiobooks" className="text-lg">
-            Show Audiobooks
-          </Label>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col md:flex-row items-center gap-2">
+          <Label id="podcastsLabel" htmlFor="podcasts" className="text-lg">
+            Podcasts
+          </Label>
           <Switch
             id="podcasts"
             className="cursor-pointer"
@@ -111,9 +121,6 @@ export default function MediaPage() {
             checked={podcastsVisible}
             onCheckedChange={() => handleFilterToggle('podcasts', podcastsVisible)}
           />
-          <Label id="podcastsLabel" htmlFor="podcasts" className="text-lg">
-            Show Podcasts
-          </Label>
         </div>
       </div>
     </form>
