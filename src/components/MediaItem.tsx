@@ -1,13 +1,12 @@
-type MediaItemProps = {
-  title: string
-  artist: string
-  image?: string
-  releaseDate: string
-}
+import type { Media } from '../actions/fetchMediaActions'
 
-const MediaItem = ({ title, artist, image, releaseDate }: MediaItemProps) => {
+const MediaItem = ({ position, title, artist, image, releaseDate }: Media) => {
   return (
     <div className="media-item flex gap-4 relative">
+      <span className="bg-teal-700 self-start w-10 h-10 flex shrink-0 items-center justify-center absolute -left-2 -top-2 text-white font-bold">
+        <span className="sr-only">Chart position</span>
+        {position}
+      </span>
       <img src={image} alt={title} className="media-item-image" />
       <div className="media-item-details">
         <h3 className="media-item-title">{title}</h3>

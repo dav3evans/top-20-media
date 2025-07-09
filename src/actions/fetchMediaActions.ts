@@ -15,6 +15,7 @@ type MediaItem = {
   'im:releaseDate': { attributes: { label: string } }
 }
 export type Media = {
+  position: number
   title: string
   artist: string
   image: string
@@ -28,7 +29,8 @@ export async function fetchMedia(MediaType: MediaType): Promise<Media[]> {
     const response = await fetch(url)
     const data = await response.json()
 
-    return data.feed.entry.map((item: MediaItem) => ({
+    return data.feed.entry.map((item: MediaItem, index: number) => ({
+      position: index + 1,
       title: item['im:name'].label,
       artist: item['im:artist'].label,
       image: item['im:image'][item['im:image'].length - 1].label || '',

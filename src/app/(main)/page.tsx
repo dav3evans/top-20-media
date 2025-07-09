@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useTransition, useEffect } from 'react'
+import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
 
@@ -30,8 +31,8 @@ export default function MediaPage() {
     })
   }
 
-  const handleToggle = (key: string, current: boolean) => {
-    updateSearchParam(key, current ? 'false' : null) // null = reset to visible
+  const handleFilterToggle = (key: string, current: boolean) => {
+    updateSearchParam(key, current ? 'false' : null)
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -42,11 +43,11 @@ export default function MediaPage() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-6">
       <div className="flex gap-2">
-        <input
+        <Input
           type="text"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          placeholder="Filter media..."
+          placeholder="Search the charts..."
           className="border p-2 flex-1"
           id="search-filter"
         />
@@ -65,21 +66,21 @@ export default function MediaPage() {
           className="cursor-pointer"
           onClick={() => {
             setFilter('')
-            router.replace('?', { scroll: false }) // clears search param
+            router.replace('?', { scroll: false })
           }}
         >
           Reset Search
         </button>
       </div>
 
-      <div className="flex gap-6 flex-wrap">
+      <div className="flex gap-8 justify-center">
         <div className="flex items-center gap-2">
           <Switch
             id="albums"
             className="cursor-pointer"
             aria-labelledby="albumsLabel"
             checked={albumsVisible}
-            onCheckedChange={() => handleToggle('albums', albumsVisible)}
+            onCheckedChange={() => handleFilterToggle('albums', albumsVisible)}
           />
           <Label id="albumsLabel" htmlFor="albums">
             Show Albums
@@ -92,7 +93,7 @@ export default function MediaPage() {
             className="cursor-pointer"
             aria-labelledby="audiobooksLabel"
             checked={audiobooksVisible}
-            onCheckedChange={() => handleToggle('audiobooks', audiobooksVisible)}
+            onCheckedChange={() => handleFilterToggle('audiobooks', audiobooksVisible)}
           />
           <Label id="audiobooksLabel" htmlFor="audiobooks">
             Show Audiobooks
@@ -106,7 +107,7 @@ export default function MediaPage() {
             aria-label="show postcasts"
             aria-labelledby="podcastsLabel"
             checked={podcastsVisible}
-            onCheckedChange={() => handleToggle('podcasts', podcastsVisible)}
+            onCheckedChange={() => handleFilterToggle('podcasts', podcastsVisible)}
           />
           <Label id="podcastsLabel" htmlFor="podcasts">
             Show Podcasts

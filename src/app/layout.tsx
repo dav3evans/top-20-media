@@ -23,10 +23,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] dark">
         <header className="flex flex-col justify-center">
-          <h1 className="m-auto text-5xl md:text-7xl whitespace-nowrap mb-6 w-fit bg-clip-text text-transparent bg-gradient-to-tr from-pink-700 to-purple-600 dark:from-pink-500 dark:to-purple-700">
+          <h1 className="m-auto text-5xl md:text-7xl whitespace-nowrap mb-4 w-fit bg-clip-text text-transparent bg-gradient-to-tr from-teal-200 to-teal-700">
             The Chart.
           </h1>
-          <p>Showing you the best in music, books, and podcasts</p>
+          <p className="text-2xl">Showing you the best in music, books, and podcasts</p>
         </header>
         {children}
         <footer>
