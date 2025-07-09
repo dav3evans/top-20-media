@@ -21,7 +21,6 @@ export default async function PodcastsList({
 
   if (filtered.length === 0) {
     return <NoResults />
-    // This replaces the list - we need to move those styles into a container and then reference that here.
   }
 
   return <MediaList items={filtered} title="Podcasts" />
