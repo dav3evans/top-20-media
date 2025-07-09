@@ -1,5 +1,6 @@
 import type { Media } from '@actions/fetchMediaActions'
-import MediaItem from './MediaItem'
+import MediaItem from '@components/MediaItem'
+import Card from '@components/Card'
 
 type MediaListProps = {
   items: Media[]
@@ -8,7 +9,7 @@ type MediaListProps = {
 
 const MediaList = ({ items, title }: MediaListProps) => {
   return (
-    <div>
+    <Card>
       <h2 className="text-xl font-semibold">{title}</h2>
       {items.map((item) => (
         <MediaItem
@@ -20,7 +21,7 @@ const MediaList = ({ items, title }: MediaListProps) => {
           releaseDate={item.releaseDate}
         />
       ))}
-    </div>
+    </Card>
   )
 }
 
