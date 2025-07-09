@@ -1,35 +1,20 @@
 'use server'
 
+import { MediaItemType, RawMediaItemType, MediaType } from '@/types/mediaTypes'
+
 /*
  * iTunes API is very inconsistent and does not provide a stable endpoint for fetching top albums.
  * Instead we're using the RSS feed which is an older approach but more reliable.
  */
 
-// TODO: Move these types to a separate file
-type MediaType = 'albums' | 'audiobooks' | 'podcasts'
-
-type MediaItem = {
-  'im:name': { label: string }
-  'im:artist': { label: string }
-  'im:image': { label?: string }[]
-  'im:releaseDate': { attributes: { label: string } }
-}
-export type Media = {
-  position: number
-  title: string
-  artist: string
-  image: string
-  releaseDate: string
-}
-
-export async function fetchMedia(MediaType: MediaType): Promise<Media[]> {
+export async function fetchMedia(MediaType: MediaType): Promise<MediaItemType[]> {
   const url = `https://itunes.apple.com/gb/rss/top${MediaType}/limit=20/json`
 
   try {
     const response = await fetch(url)
     const data = await response.json()
 
-    return data.feed.entry.map((item: MediaItem, index: number) => ({
+    return data.feed.entry.map((item: RawMediaItemType, index: number) => ({
       position: index + 1,
       title: item['im:name'].label,
       artist: item['im:artist'].label,

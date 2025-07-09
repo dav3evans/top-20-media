@@ -1,9 +1,9 @@
-import type { Media } from '@actions/fetchMediaActions'
+import { MediaItemType } from '@/types/mediaTypes'
 import MediaItem from '@components/MediaItem'
 import Card from '@components/Card'
 
 type MediaListProps = {
-  items: Media[]
+  items: MediaItemType[]
   title: string
 }
 

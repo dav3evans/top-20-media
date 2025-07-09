@@ -1,6 +1,6 @@
-import type { Media } from '../actions/fetchMediaActions'
+import { MediaItemType } from '@/types/mediaTypes'
 
-const MediaItem = ({ position, title, artist, image, releaseDate }: Media) => {
+const MediaItem = ({ position, title, artist, image, releaseDate }: MediaItemType) => {
   return (
     <div className="media-item flex items-start md:items-stretch md:flex-col gap-4">
       <div className="relative shrink-0 max-w-[70px] md:max-w-none">
