@@ -57,14 +57,14 @@ export default function MediaPage() {
         </Label>
         <Button
           type="submit"
-          className="bg-teal-800 text-2xl text-white h-full px-4 py-2 rounded-sm cursor-pointer"
+          className="bg-teal-800 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer"
           disabled={isPending}
         >
           Search
         </Button>
         <Button
           type="button"
-          className="bg-gray-500 text-2xl text-white h-full px-4 py-2 rounded-sm cursor-pointer"
+          className="bg-gray-500 text-2xl text-white font-light h-full px-4 py-2 rounded-sm cursor-pointer"
           onClick={() => {
             setFilter('')
             router.replace('?', { scroll: false })
