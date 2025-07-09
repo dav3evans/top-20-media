@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
           {children}
           <footer>
-            <p>Top 20 Media Explorer - D Evans, 2025</p>
+            <p className="text-center p-4">Top 20 Media Explorer - D Evans, 2025</p>
           </footer>
         </div>
       </body>
