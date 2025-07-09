@@ -15,7 +15,7 @@ export default async function PodcastsList({
 
   let allPodcasts = []
   try {
-    allPodcasts = await fetchMedia('albums')
+    allPodcasts = await fetchMedia('podcasts')
   } catch (error) {
     console.error('Podcasts: fetchMedia failed', error)
     return <Error errorMessage="Unable to fetch podcasts, please refresh and try again." />

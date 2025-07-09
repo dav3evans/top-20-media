@@ -15,7 +15,7 @@ export default async function AudiobooksList({
 
   let allAudiobooks = []
   try {
-    allAudiobooks = await fetchMedia('albums')
+    allAudiobooks = await fetchMedia('audiobooks')
   } catch (error) {
     console.error('Audiobooks: fetchMedia failed', error)
     return <Error errorMessage="Unable to fetch audiobooks, please refresh and try again." />
