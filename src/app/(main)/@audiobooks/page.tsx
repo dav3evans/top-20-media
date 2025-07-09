@@ -16,7 +16,9 @@ export default async function AudiobooksList({
 
   const allAudiobooks = await fetchMedia('audiobooks')
   const filter = awaitedParams.filter?.toLowerCase() || ''
-  const filtered = allAudiobooks.filter((album) => album.title.toLowerCase().includes(filter))
+  const filtered = allAudiobooks.filter((audiobook) => {
+    return Object.values(audiobook).some((value) => String(value).toLowerCase().includes(filter))
+  })
 
   if (filtered.length === 0) {
     return <NoResults />

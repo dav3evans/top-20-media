@@ -17,7 +17,9 @@ export default async function PodcastsList({
   const allPodcasts = await fetchMedia('podcasts')
 
   const filter = awaitedParams.filter?.toLowerCase() || ''
-  const filtered = allPodcasts.filter((album) => album.title.toLowerCase().includes(filter))
+  const filtered = allPodcasts.filter((podcast) => {
+    return Object.values(podcast).some((value) => String(value).toLowerCase().includes(filter))
+  })
 
   if (filtered.length === 0) {
     return <NoResults />

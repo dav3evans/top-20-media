@@ -16,7 +16,9 @@ export default async function AlbumsList({
 
   const allAlbums = await fetchMedia('albums')
   const filter = awaitedParams.filter?.toLowerCase() || ''
-  const filtered = allAlbums.filter((album) => album.title.toLowerCase().includes(filter))
+  const filtered = allAlbums.filter((album) => {
+    return Object.values(album).some((value) => String(value).toLowerCase().includes(filter))
+  })
 
   if (filtered.length === 0) {
     return <NoResults />
